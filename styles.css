@@ -58,3 +58,6 @@ body {
   display: flex;
   margin-bottom: 8px;
 }
+.error-text {
+  margin-right: 16px;
+}

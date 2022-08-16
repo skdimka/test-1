@@ -17,6 +17,11 @@ const renderListItems = (listItems) => {
       if (done) {
         listItemElem.classList.add("list__item_done");
       }
+
+      // const addTask
+      //const clearListElems = document.createElement("button");
+      // clearListElems.classList.add("btn create-task-btn");
+
       const checkBoxElem = document.createElement("input");
       checkBoxElem.setAttribute("type", "checkbox");
       checkBoxElem.setAttribute("checked", done);
@@ -28,5 +33,31 @@ const renderListItems = (listItems) => {
     });
   listElem.append(...listItemsElems);
 };
+
+let taskInput = document.querySelector(".task-input");
+let errorInput = document.querySelector(".error-text");
+
+////const mirrorErrorInput = (event) => {
+// const errorText = event.target.value;
+// errorInput.textContent = errorText;
+// arrayTasks.push(errorText);
+//};
+
+const addTaskButton = document.querySelector(".btn");
+const deskTaskInput = document.querySelector(".task-input");
+
+function AddTaskInput(text) {
+  this.text = text;
+  this.done = false;
+}
+
+//const addTastArray = arrayTasks.push(new AddTaskInput(deskTaskInput.value));
+
+addTaskButton.addEventListener("click", () => {
+  arrayTasks.push(new AddTaskInput(deskTaskInput.value));
+  renderListItems(arrayTasks.slice(-1));
+});
+
+//taskInput.addEventListener("input", mirrorErrorInput);
 
 renderListItems(arrayTasks);
